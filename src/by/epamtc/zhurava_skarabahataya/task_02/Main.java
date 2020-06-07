@@ -1,3 +1,5 @@
+//Вычислите число и месяц в невисокосном году по номеру дня.
+
 package by.epamtc.zhurava_skarabahataya.task_02;
 
 public class Main {
@@ -17,6 +19,7 @@ public class Main {
 		daysInCurrentMonth = getDaysInMonth(monthNumber);
 
 		while (dayNumber > daysInCurrentMonth) {
+			
 			dayNumber -= daysInCurrentMonth;
 			monthNumber++;
 			daysInCurrentMonth = getDaysInMonth(monthNumber);
