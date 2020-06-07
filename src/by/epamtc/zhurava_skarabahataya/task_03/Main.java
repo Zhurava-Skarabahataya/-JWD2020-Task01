@@ -7,6 +7,7 @@ package by.epamtc.zhurava_skarabahataya.task_03;
 public class Main {
 
 	public static void main(String[] args) {
+		
 		double a;
 		double b;
 		double c;
