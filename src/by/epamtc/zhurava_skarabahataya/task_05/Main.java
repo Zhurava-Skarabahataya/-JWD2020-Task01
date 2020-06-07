@@ -1,9 +1,12 @@
 /*
- * Дано трехзначное число. Определите:
+ *Р”Р°РЅРѕ С‚СЂРµС…Р·РЅР°С‡РЅРѕРµ С‡РёСЃР»Рѕ. РћРїСЂРµРґРµР»РёС‚Рµ:
 
-    сумму и произведение цифр числа;
-    число, полученное перестановкой цифр сотен и десятков;
-    четырехзначное число, полученное приписыванием цифры единиц в качестве цифры тысяч (например, из числа 137 необходимо получить число 7137).
+СЃСѓРјРјСѓ Рё РїСЂРѕРёР·РІРµРґРµРЅРёРµ С†РёС„СЂ С‡РёСЃР»Р°;
+С‡РёСЃР»Рѕ, РїРѕР»СѓС‡РµРЅРЅРѕРµ РїРµСЂРµСЃС‚Р°РЅРѕРІРєРѕР№ С†РёС„СЂ СЃРѕС‚РµРЅ Рё РґРµСЃСЏС‚РєРѕРІ;
+С‡РµС‚С‹СЂРµС…Р·РЅР°С‡РЅРѕРµ С‡РёСЃР»Рѕ, РїРѕР»СѓС‡РµРЅРЅРѕРµ РїСЂРёРїРёСЃС‹РІР°РЅРёРµРј С†РёС„СЂС‹ РµРґРёРЅРёС† РІ РєР°С‡РµСЃС‚РІРµ С†РёС„СЂС‹ С‚С‹СЃСЏС‡ 
+(РЅР°РїСЂРёРјРµСЂ, РёР· С‡РёСЃР»Р° 137 РЅРµРѕР±С…РѕРґРёРјРѕ РїРѕР»СѓС‡РёС‚СЊ С‡РёСЃР»Рѕ 7137).
+РџСЂРёРјРµС‡Р°РЅРёРµ: РґР»СЏ СЂРµС€РµРЅРёСЏ СЌС‚РѕР№ РЅРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїРµСЂРµРІРѕРґ С‡РёСЃР»Р° РІ СЃС‚СЂРѕРєСѓ Рё РѕР±СЂР°С‚РЅРѕ. 
+
 */
 
 package by.epamtc.zhurava_skarabahataya.task_05;
@@ -11,57 +14,58 @@ package by.epamtc.zhurava_skarabahataya.task_05;
 public class Main {
 	public static void main(String[] args) {
 		int number;
-		
 		number = 357;
 
 		findSumAndProductOfDigits(number);
+
 		swapHundredsAndTens(number);
+
 		getFourDigitNumber(number);
 	}
 
 	private static void findSumAndProductOfDigits(int number) {
 		int sumOfDigits;
 		int productOfDigits;
-		
+
 		sumOfDigits = 0;
 		productOfDigits = 1;
-		
+
 		while (number > 0) {
 			int lastDigit;
 			lastDigit = number % 10;
-			
+
 			sumOfDigits += lastDigit;
 			productOfDigits *= lastDigit;
-			
+
 			number = number / 10;
 		}
-		
-		System.out.printf("Сумма цифр: %d%n", sumOfDigits);
-		System.out.printf("Произведение цифр: %d%n", productOfDigits);
+
+		System.out.printf("РЎСѓРјРјР° С†РёС„СЂ: %d%n", sumOfDigits);
+		System.out.printf("РџСЂРѕРёР·РІРµРґРµРЅРёРµ С†РёС„СЂ: %d%n", productOfDigits);
 	}
 
 	private static void swapHundredsAndTens(int number) {
 		int ones;
 		int tens;
-		int hundreds; 
+		int hundreds;
 		int resultNumber;
-		
+
 		ones = number % 10;
 		tens = number / 10 % 10;
 		hundreds = number / 100;
-		
+
 		resultNumber = ones + hundreds * 10 + tens * 100;
-		
-		System.out.printf("Перестановка сотен и десятков: %d%n", resultNumber);
+
+		System.out.printf("РџРѕРјРµРЅСЏС‚СЊ РјРµСЃС‚Р°РјРё СЃРѕС‚РЅРё Рё РґРµСЃСЏС‚РєРё: %d%n", resultNumber);
 	}
 
 	private static void getFourDigitNumber(int number) {
 		int ones;
-		
+
 		ones = number % 10;
 		number += ones * 1000;
-		
-		System.out.printf("Приписывание единиц в качестве тысяч: %d%n", number);
+
+		System.out.printf("РџРѕРґСЃС‚Р°РІРёС‚СЊ С‡РёСЃР»Рѕ РµРґРёРЅРёС† РІ РєР°С‡РµСЃС‚РІРµ С‚С‹СЃСЏС‡: %d%n", number);
 	}
 
 }

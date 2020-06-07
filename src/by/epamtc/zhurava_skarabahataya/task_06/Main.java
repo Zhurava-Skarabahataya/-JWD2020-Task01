@@ -1,7 +1,8 @@
 /*
- * ����� ������ n ������ �������������� ���������� ����������� �� ������� Sn = ( a1 + an )* n / 2. 
- * ���� a1 � d (��� �������������� ����������). 
- * ������� n, ��� ������� �������� Sn ������� �� �������� ����� int � long (����������������� �����).
+ * Сумма первых n членов арифметической прогрессии вычисляется по формуле 
+ * Sn = ( a1 + an )* n / 2. Даны a1 и d (шаг арифметической прогрессии).
+ *  Найдите n, при котором значение Sn выходит за диапазон типов int и long 
+ *  (экспериментальным путем).
 */
 
 package by.epamtc.zhurava_skarabahataya.task_06;
@@ -9,44 +10,69 @@ package by.epamtc.zhurava_skarabahataya.task_06;
 public class Main {
 
 	public static void main(String[] args) {
-		long a1;
-		long d;
+		int a1;
+		int d;
 
 		a1 = 1000;
 		d = 340;
 
-		findN(a1, d);
+		findOutOfInt(a1, d);
+		findOutOfLong(a1, d);
 	}
 
-	private static void findN(long a1, long d) {
-		boolean isInIntRange;
+	private static void findOutOfLong(int a1, int d) {
+		
 		boolean isInLongRange;
 		long n;
-
-		isInIntRange = true;
+		long previousSum;
+		
 		isInLongRange = true;
 		n = 1;
-
+		previousSum = a1;
+		
 		while (isInLongRange) {
-			double an;
-			double sn;
+			long an;
+			long sum;
 
 			an = a1 + (n - 1) * d;
-			sn = (a1 + an) * n / 2;
+			sum = (a1 + an) * n / 2;
 
-			if (isInIntRange && (sn > Integer.MAX_VALUE || sn < Integer.MIN_VALUE)) {
-				System.out.printf("Sn ������� �� ������� int ��� n=%d%n", n);
-				isInIntRange = false;
-			}
-			if (sn > Long.MAX_VALUE || sn < Long.MIN_VALUE) {
-				isInLongRange = false;
-				System.out.printf("Sn ������� �� ������� long ��� n=%d%n", n);
+			if ((d>0 && previousSum > sum) || (d>0 && previousSum > sum) ) {
+				System.out.printf("Sn is out of long range with n=%d%n", n);
+				break;
 			}
 
 			n++;
+			previousSum = sum;
 		}
 
 	}
 
+	private static void findOutOfInt(int a1, int d) {
+		
+		boolean isInIntRange;
+		int n;
+		int previousSum = a1;
+
+		isInIntRange = true;
+		n = 1;
+
+		while (isInIntRange) {
+			int an;
+			int sum;
+
+			an = a1 + (n - 1) * d;
+			sum = (a1 + an) * n / 2;
+
+			if ((d>0 && previousSum > sum) || (d>0 && previousSum > sum) ) {
+				System.out.printf("Sn is out of int range with n=%d%n", n);
+				break;
+			}
+			
+			previousSum = sum;
+			n++;
+		}
+
+	}
 
 }

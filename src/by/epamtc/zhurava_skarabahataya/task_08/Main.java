@@ -1,4 +1,4 @@
-//Вычислить значения функции на отрезке [a,b] c шагом h:
+//Р’С‹С‡РёСЃР»РёС‚СЊ Р·РЅР°С‡РµРЅРёСЏ С„СѓРЅРєС†РёРё РЅР° РѕС‚СЂРµР·РєРµ [a,b] c С€Р°РіРѕРј h:
 
 package by.epamtc.zhurava_skarabahataya.task_08;
 
@@ -30,7 +30,7 @@ public class Main {
 				y = (x - c) + 6;
 			}
 			
-			System.out.printf("y=%.3f при x=%.3f%n", y, x);
+			System.out.printf("y=%.3f РїСЂРё x=%.3f%n", y, x);
 
 		}
 	}
