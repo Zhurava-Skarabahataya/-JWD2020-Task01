@@ -1,4 +1,4 @@
-//Вычислите значение выражения по формуле:
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ:
 
 package by.epamtc.zhurava_skarabahataya.task_01;
 
@@ -14,7 +14,7 @@ public class Main {
 		b = 9;
 		c = 93;
 
-		System.out.printf("Результат: %.3f.", countFormula(a, b, c));
+		System.out.printf("Р РµР·СѓР»СЊС‚Р°С‚: %.3f.", countFormula(a, b, c));
 	}
 
 	private static double countFormula(double a, double b, double c) {
