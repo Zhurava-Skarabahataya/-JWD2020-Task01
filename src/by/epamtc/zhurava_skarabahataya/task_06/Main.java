@@ -14,22 +14,22 @@ public class Main {
 		int d;
 
 		a1 = 1000;
-		d = 340;
+		d = -309040;
 
 		findOutOfInt(a1, d);
 		findOutOfLong(a1, d);
 	}
 
 	private static void findOutOfLong(int a1, int d) {
-		
+
 		boolean isInLongRange;
 		long n;
 		long previousSum;
-		
+
 		isInLongRange = true;
 		n = 1;
 		previousSum = a1;
-		
+
 		while (isInLongRange) {
 			long an;
 			long sum;
@@ -37,7 +37,7 @@ public class Main {
 			an = a1 + (n - 1) * d;
 			sum = (a1 + an) * n / 2;
 
-			if ((d>0 && previousSum > sum) || (d>0 && previousSum > sum) ) {
+			if ((d > 0 && previousSum > sum) || (d < 0 && previousSum < 0 && sum > 0)) {
 				System.out.printf("Sn is out of long range with n=%d%n", n);
 				break;
 			}
@@ -49,7 +49,7 @@ public class Main {
 	}
 
 	private static void findOutOfInt(int a1, int d) {
-		
+
 		boolean isInIntRange;
 		int n;
 		int previousSum = a1;
@@ -64,11 +64,11 @@ public class Main {
 			an = a1 + (n - 1) * d;
 			sum = (a1 + an) * n / 2;
 
-			if ((d>0 && previousSum > sum) || (d>0 && previousSum > sum) ) {
+			if ((d > 0 && previousSum > sum) || (d < 0 && previousSum < 0 && sum > 0)) {
 				System.out.printf("Sn is out of int range with n=%d%n", n);
 				break;
 			}
-			
+
 			previousSum = sum;
 			n++;
 		}
